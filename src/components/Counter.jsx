@@ -1,24 +1,24 @@
-import React, { useState } from "react";
+import React, {useState} from  "react";
 
 const Counter = function () {
 
-    const [Count, SetCount] = useState(0);
-
-    function increment () {
-        SetCount(Count +1);
-    };
-
-    function Decrement () {
-        SetCount(Count -1);
-    };
-
-    return(
+    const [likes, setLikes] = useState(0);
+    const [value, setValue] = useState('текст в импуте');
+  
+    return (
         <div>
-            <h1>{Count}</h1>
-            <button onClick={increment}>Increment</button>
-            <button onClick={Decrement}>Decrement</button>
-        </div>
-    )
-}
+        <h1>{likes}</h1>
+        <h1>{value}</h1>
+  
+        <input
+          type='text'
+          value={value}
+          onChange={ event => setValue(event.target.value)}
+        />
+        <button onClick={() => setLikes(likes + 1)}>Increment</button>
+        <button onClick={() => setLikes(likes - 1)}>Descrement</button>
+      </div>
+    );
+};
 
 export default Counter;
